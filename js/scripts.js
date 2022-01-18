@@ -21,9 +21,23 @@ function numberOfOccurrencesInText(word, text) {
   const wordArray = text.split(" ");
   let wordCount = 0;
   wordArray.forEach(function(element) {
-    if (word.toLowerCase() === element.toLowerCase()) {
+    if (element.toLowerCase().includes(word.toLowerCase())) {
       wordCount++
     }
   });
   return wordCount;
 }
+
+// UI Logic
+
+$(document).ready(function(){
+  $("form#word-counter").submit(function(event){
+    event.preventDefault();
+    const passage = $("#text-passage").val();
+    const word = $("#word").val();
+    const wordCount = wordCounter(passage);
+    const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
+    $("#total-count").html(wordCount);
+    $("#selected-count").html(occurrencesOfWord);
+  });
+});
