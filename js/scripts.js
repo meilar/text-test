@@ -34,6 +34,12 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
+function mostUsedWordsInText(text) {
+  if (text.trim().length === 0) {
+    return 0;
+  }
+} 
+
 // UI Logic
 
 function boldPassage(word, text) {

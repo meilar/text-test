@@ -37,13 +37,15 @@ The following software tools were used to develop this page:
 
 ## Testing
 
+This project was used to practice Test-Driven Development. The following plain-language tests were used to implement and refine new features.
+
 #### Describe: wordCounter()
 
 Test: "It should return 1 if a passage has just one word."
 Code:
   `const text = "hello";`
   `wordCounter(text);`
-Expected Output:1
+Expected Output: 1
 
 Test: "It should return 2 if a passage has two words."
 Code:
@@ -108,6 +110,14 @@ Code:
 const word = "";
 const text = "red RED Red!";
 wordCounter(word, text);
+Expected Output: 0
+
+#### Describe: mostUsedWordsInText()
+
+Test: "It should return 0 if no argument is passed."
+Code:  
+  `const text = "";`
+  `mostUsedWordsInText(text);`
 Expected Output: 0
 
 ## Known Issues
