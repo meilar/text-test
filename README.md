@@ -120,6 +120,12 @@ Code:
   `mostUsedWordsInText(text);`
 Expected Output: 0
 
+Test: "It should return an array if any text is passed as an argument."
+Code:
+  `const text = "test"`
+  `mostUsedWordsInText(text);`
+Expected Output: ["", 0, "", 0, "", 0]
+
 ## Known Issues
 
 ## Acknowledgements

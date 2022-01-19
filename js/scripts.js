@@ -35,8 +35,17 @@ function numberOfOccurrencesInText(word, text) {
 }
 
 function mostUsedWordsInText(text) {
+  let top1 = "";
+  let top2 = "";
+  let top3 = "";
+  let top1Count = 0;
+  let top2Count = 0;
+  let top3Count = 0;
+  let topArr = [top1, top1Count, top2, top2Count, top3, top3Count];
   if (text.trim().length === 0) {
     return 0;
+  } else {
+    return topArr;
   }
 } 
 
