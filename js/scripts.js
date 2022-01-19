@@ -35,16 +35,29 @@ function numberOfOccurrencesInText(word, text) {
 }
 
 function mostUsedWordsInText(text) {
-  let top1 = "";
-  let top2 = "";
-  let top3 = "";
-  let top1Count = 0;
-  let top2Count = 0;
-  let top3Count = 0;
-  let topArr = [top1, top1Count, top2, top2Count, top3, top3Count];
+  let topArr = ["", 0, "", 0, "", 0];
+  
   if (text.trim().length === 0) {
     return 0;
   } else {
+    textArray = text.split(" ");
+
+    textArray.forEach(function(word) {
+      let topCandidate = numberOfOccurrencesInText(word, text);
+      if (topCandidate > topArr[1]) {
+        topArr.unshift(topCandidate);
+        topArr.unshift(word);
+        topArr.splice(6, 2);
+      } else if (topCandidate > topArr[3]) {
+        topArr.splice(2, 0, word);
+        topArr.splice(3, 0, topCandidate);
+        topArr.splice(6, 2);
+      } else if ((numberOfOccurrencesInText(word, text) > topArr[5])) {
+        topArr.splice(4, 0, word);
+        topArr.splice(5, 0, topCandidate);
+        topArr.splice(6, 2);
+      }
+    });
     return topArr;
   }
 } 
@@ -68,7 +81,20 @@ function boldPassage(word, text) {
     }
   });
   return htmlString + "</p>";
-}
+};
+
+function listTopWords(text) {
+  let topArray = (mostUsedWordsInText(text));
+  $("ul#top-list").append("<li>" + topArray[0] + ": " + topArray[1] + "</li>");
+  if (topArray[3] > 0) {
+    $("ul#top-list").append("<li>" + topArray[2] + ": " + topArray[3] + "</li>")
+  }
+  if ((topArray[5] > 0) && (topArray[5] != topArray[3])) {
+    $("ul#top-list").append("<li>" + topArray[4] + ": " + topArray[5] + "</li>")
+  }
+};
+
+
 
 $(document).ready(function(){
   $("form#word-counter").submit(function(event){
@@ -80,5 +106,6 @@ $(document).ready(function(){
     $("#total-count").html(wordCount);
     $("#selected-count").html(occurrencesOfWord);
     $("#bolded-passage").html(boldPassage(word, passage));
+    listTopWords(passage);
   });
 });

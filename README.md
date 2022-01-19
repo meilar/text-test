@@ -126,6 +126,12 @@ Code:
   `mostUsedWordsInText(text);`
 Expected Output: ["", 0, "", 0, "", 0]
 
+Test: "It should store three unique words and the number of their occurances in the output array."
+Code:
+  `const text = "red green blue"`
+  `mostUsedWordsInText(text);`
+Expected Output: ["red", 1, "green", 1, "blue", 1]
+
 ## Known Issues
 
 ## Acknowledgements
