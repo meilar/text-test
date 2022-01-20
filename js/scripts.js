@@ -89,7 +89,7 @@ function listTopWords(text) {
   if (topArray[3] > 0) {
     $("ul#top-list").append("<li>" + topArray[2] + ": " + topArray[3] + "</li>")
   }
-  if ((topArray[5] > 0) && (topArray[5] != topArray[3])) {
+  if ((topArray[5] > 0) && (topArray[5] != topArray[3] {
     $("ul#top-list").append("<li>" + topArray[4] + ": " + topArray[5] + "</li>")
   }
 };
